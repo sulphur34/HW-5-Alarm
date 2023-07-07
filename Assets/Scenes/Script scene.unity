@@ -10698,7 +10698,8 @@ GameObject:
   - component: {fileID: 133930500}
   - component: {fileID: 133930499}
   - component: {fileID: 133930498}
-  - component: {fileID: 133930497}
+  - component: {fileID: 133930504}
+  - component: {fileID: 133930503}
   - component: {fileID: 133930496}
   m_Layer: 0
   m_Name: AlarmTrigger
@@ -10721,18 +10722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 544528176}
   _endColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &133930497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133930495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa6d7f62bc686247b012c9c9001334f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &133930498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10748,9 +10737,9 @@ MonoBehaviour:
   _trespassed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 133930497}
+      - m_Target: {fileID: 133930504}
         m_TargetAssemblyTypeName: AlarmSound, Assembly-CSharp
-        m_MethodName: AmplifyVolume
+        m_MethodName: SetVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10775,9 +10764,9 @@ MonoBehaviour:
   _escaped:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 133930497}
-        m_TargetAssemblyTypeName: AlarmSound, Assembly-CSharp
-        m_MethodName: ReduceVolume
+      - m_Target: {fileID: 133930496}
+        m_TargetAssemblyTypeName: AlarmColor, Assembly-CSharp
+        m_MethodName: ReduceColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10787,9 +10776,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 133930496}
-        m_TargetAssemblyTypeName: AlarmColor, Assembly-CSharp
-        m_MethodName: ReduceColor
+      - m_Target: {fileID: 133930503}
+        m_TargetAssemblyTypeName: AlarmSound, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10957,6 +10946,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &133930503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133930495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa6d7f62bc686247b012c9c9001334f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startVolume: 1
+  _endVolume: 0
+--- !u!114 &133930504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133930495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa6d7f62bc686247b012c9c9001334f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startVolume: 0
+  _endVolume: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
