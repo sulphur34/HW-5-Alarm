@@ -19,9 +19,9 @@ public class AlarmSound : MonoBehaviour
         _audioSource.Play();
     }
    
-    public void SetVolume()
+    public void SetVolume(int directionValue)
     {
-        _currentTime += Time.deltaTime / _duration;        
+        _currentTime += Time.deltaTime / _duration * directionValue;        
         _audioSource.volume = Mathf.Lerp(_startVolume, _endVolume, _currentTime);
     }    
 }

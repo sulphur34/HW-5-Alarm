@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,17 +12,21 @@ public class EnemyDetector : MonoBehaviour
     [SerializeField] private UnityEvent _escaped;
         
     private AudioSource _audioSource;
-
+    private Predicate<float> _isMoreThanZero = (float volumeValue ) => volumeValue > 0;
+    private Predicate<float> _isLessThanOne = (float volumeValue) => volumeValue < 1;
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
+        
+        
+        ;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent(out GragOhr gragOhr))
         {
-            _trespassed.Invoke();
+            StartCoroutine(SwichAlarm(_trespassed, _isLessThanOne));           
         }
     }
 
@@ -28,15 +34,16 @@ public class EnemyDetector : MonoBehaviour
     {
         if (collision.TryGetComponent(out GragOhr gragOhr))
         {            
-            StartCoroutine(FadeOnEscape());
+            StartCoroutine(SwichAlarm(_escaped, _isMoreThanZero));
         }
     }
 
-    private IEnumerator FadeOnEscape()
+    private IEnumerator SwichAlarm(UnityEvent swiched, Predicate<float> predicate)
     {
-        while(_audioSource.volume > 0)
+        while(predicate(_audioSource.volume))
         {
-            _escaped.Invoke();
+            swiched.Invoke();
+            Debug.Log(_audioSource.volume);
             yield return new WaitForEndOfFrame();
         }
     }
