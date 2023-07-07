@@ -10738,7 +10738,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 133930504}
         m_TargetAssemblyTypeName: AlarmSound, Assembly-CSharp
-        m_MethodName: SetVolume
+        m_MethodName: SwichAlarm
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10753,7 +10753,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 133930504}
         m_TargetAssemblyTypeName: AlarmSound, Assembly-CSharp
-        m_MethodName: SetVolume
+        m_MethodName: SwichAlarm
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10933,8 +10933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa6d7f62bc686247b012c9c9001334f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startVolume: 0
-  _endVolume: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
